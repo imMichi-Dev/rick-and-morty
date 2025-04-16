@@ -19,9 +19,8 @@
     <div class="hero"></div>
     <main class="column">
       <div class="search">
-        <h2 id="search-title">Episodios</h2>
-        <div class="search-container">
-          <form class="search-input-container">
+        <div class="search-container ">
+          <div class="search-input-container flex">
             <input
               type="text"
               id="search-input"
@@ -29,18 +28,15 @@
               placeholder="Ingresá tu búsqueda"
               aria-labelledby="search-title"
             />
-            <i class="fas fa-search" aria-hidden="true"></i>
-          </form>
-          <form class="search-inner-container">
             <div class="sort-container">
               <label for="search-type">TIPO</label>
               <select name="search-type" id="search-type">
-                <option value="episode">EPISODIOS</option>
                 <option value="character">PERSONAJES</option>
+                <option value="episode">EPISODIOS</option>
               </select>
             </div>
-            <button type="button" class="search-button">BUSCAR</button>
-          </form>
+            <button class="search-button" id="search-button">BUSCAR</button>
+          </div>
         </div>
       </div>
       <div>
@@ -49,12 +45,11 @@
           <p class="results-count">
             <span class="results-number">0</span> RESULTADOS
           </p>
-          <div class="results" class="results"></div>
           <div id="cardstable">
-
-
+            <div class="animate-pulse" id="loader" style="display:none;">
+              <p>Cargando...</p>
+            </div>
           </div>
-          
           <div class="pagination">
             <button
               type="button"

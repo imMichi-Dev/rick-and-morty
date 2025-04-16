@@ -15,14 +15,18 @@
 //fetching
   async function getApiInfo() {
     try{
+      $("#loader").style.display = "block"
       const urlapi= 'https://rickandmortyapi.com/api/character/?page=1'
       const response = await fetch(urlapi)
       const data = await response.json()
+      $("#loader").style.display = "none"
       datos =  data.data.results
       console.log("hasta aqui funciono")
       renderCharacter()
     }catch (error) {
-      console.log(error);
+      console.log(error)
+      $("#loader").style.display = "none"
+      $("#loader").innerText = "Error al cargar datos."
     }
 
   }
@@ -168,16 +172,9 @@
 
 const initialize = () => {
   getApiInfo()
-  // $('.search-button').onclick = () => {
-  //   search()
-  //   updatePaginationCallback(fetchCharacters)
-  // }
-
-  // $('#search-type').style.display = 'none'
-  // $('#search-sort').style.display = 'none'
-
-  // updatePaginationCallback(fetchCharacters)
-  // search()
+  $('#search-button').onclick = () => {
+    searchinput= $("#search-input").value 
+  }
 }
 
 window.onload = initialize
